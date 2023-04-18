@@ -1,0 +1,251 @@
+#homeSection {
+    margin-top: 5rem;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 5rem;
+    
+    @include respondTo(md) {
+        height: 80lvh;
+        padding-top: 6rem;
+        padding-bottom: 0;
+    }
+
+    #homeHeader {
+        text-align: left;
+        padding-left: 0 !important;
+
+        #homeHeaderP {
+            margin-left: 2rem;
+
+            @include respondTo(md) {
+                transform: translateX(-1000px);
+            }
+        }
+        
+        #mainH1 {
+            font-size: 1.75rem;
+            line-height: 2.5rem;
+            color: $DcColor-2;  
+            
+            @include respondTo(md) {
+                font-size: 3rem;
+                line-height: 4.5rem;
+                transform: translateX(-1000px);
+            }
+        }
+    
+        #mainH2 {
+            font-size: 2rem;
+            color: $DcColor-1;
+            
+            @include respondTo(md) {
+                padding-bottom: 1rem;
+                font-size: 3.5rem;
+                line-height: 3rem;
+                background: linear-gradient(to right, rgba(255,123,0,1) 20%, rgba(255,151,53,1) 40%, rgba(255,204,157,1) 100%);
+                background-clip: text;
+                background-size: 100%;
+                -webkit-text-fill-color: transparent;
+                transform: translateX(2000px);
+            }
+        }
+    }
+
+    #homePContainer {   
+        @include respondTo(md) {
+            padding-bottom: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            
+            transform: translateX(-1000px);
+        }
+
+        p {
+            position: relative;
+
+            #homeCTA {
+                position: absolute;
+                bottom: -60px;
+                left: 25%;
+                right: 25%;
+                padding: 0.5rem;
+                border-radius: 0.25rem;
+                text-align: center;
+                border: solid $DcColor-1 1px;
+                color: $DcColor-1;
+                
+                @include respondTo(sm) {
+                    left: 35%;
+                    right: 35%;
+                }
+                
+                @include respondTo(md) {
+                    transition: 0.6s;
+                    bottom: -100px;
+                    background-color: $Dcolor-3;
+
+                    &:hover {
+                        transition: 0.6s;
+                        background-color: $Dcolor-4;
+                        border: solid 1px silver;
+                        color: silver;
+                    }
+                }
+            }
+        }
+
+        #pixelPPContainer {
+            display: none;
+
+            @include respondTo(md) {
+                display: block;
+                position: relative;
+                
+                #ppImg {
+                    border: 6px solid $DcColor-2;
+                    box-shadow: 0px 10px 20px -5px $boxShadow;
+                    display: block;
+                    position: absolute;
+                    left: 200px;
+                    top: 20px;
+                    border-radius: 0.5rem;
+                    transform: translateX(2000px);
+                }
+            }
+        }
+    }
+
+    #scrollMouse {
+        border: solid $DcColor-2 2px;
+        display: none;
+        height: 2.75rem;
+        width: 1.5rem;
+        border-radius: 0.75rem;
+        position: absolute;
+        left: calc(50% - 13px);
+        bottom: 10px;
+
+        @include respondTo(md) {
+            display: block;
+            bottom: 0px;
+        }
+
+        #scrollContainer {
+            position: relative;
+            
+            &:before {
+                background-color: $DcColor-2;
+                position: absolute;
+                content: "";
+                display: block; 
+                height: 0.75rem;
+                width: 0.25rem;
+                border-radius: 0.5rem;
+                top: 0.5rem;
+                left: calc(50% - 2px);
+                -webkit-animation-duration: 0.8s;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-delay: 0s;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-play-state: running;
+                -webkit-animation-name: drop;
+                animation-name: drop;
+                -webkit-animation-duration: 0.8s;
+                animation-duration: 0.8s;
+                -webkit-animation-timing-function: linear;
+                animation-timing-function: linear;
+                -webkit-animation-delay: 0s;
+                animation-delay: 0s;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                -webkit-animation-play-state: running;
+                animation-play-state: running;
+            }
+            @-webkit-keyframes drop {
+                0% {
+                  top: 6px;
+                  opacity: 0.25;
+                }
+                30% {
+                  top: 9px;
+                  opacity: 1;
+                }
+                100% {
+                  top: 20px;
+                  opacity: 0;
+                }
+              }
+              @keyframes drop {
+                0% {
+                  top: 6px;
+                  opacity: 0.25;
+                }
+                30% {
+                  top: 9px;
+                  opacity: 1;
+                }
+                100% {
+                  top: 20px;
+                  opacity: 0;
+                }
+              }
+        }
+    }
+}
+
+#homeSection.onScroll {
+    margin-top: 4rem;
+}
+
+.light {
+    #homeSection {
+        #homeHeader {
+            #mainH1 {
+                color: $DcColor-2;
+            }
+
+            #mainH2 {
+                color: $DcColor-1;
+
+                @include respondTo(md) {
+                    background: linear-gradient(to right, rgba(255,123,0,1) 20%, rgba(255,151,53,1) 40%, #411f00 100%);
+                background-clip: text;
+                background-size: 100%;
+                -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+        
+        #homePContainer {
+            #homeCTA {
+                background-color: #333;
+                border: solid 1px $DcColor-1;
+                color: $DcColor-1;
+
+                @include respondTo(md) {
+                    
+                    &:hover {
+                        border: solid #333 1px;
+                        color: #333;
+                        background-color: #eee;
+                    }
+                }
+            }
+
+            #pixelPPContainer #ppImg {
+                border: 6px solid $DcColor-2;
+            }
+
+        }
+
+        #scrollMouse {
+            border: solid #333 2px;
+
+            #scrollContainer {
+                &:before {
+                    background-color: #333;
+                }
+            }
+        }
+    }
+}
